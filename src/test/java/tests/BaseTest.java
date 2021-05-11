@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import pages.CartPage;
 import pages.LoginPage;
 import pages.ProductsPage;
 
@@ -15,6 +16,7 @@ public abstract class BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     ProductsPage productsPage;
+    CartPage cartPage;
     public static final String USER = "standard_user";
     public static final String PASSWORD = "secret_sauce";
 
@@ -27,6 +29,7 @@ public abstract class BaseTest {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); // неявные ожидания
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
+        cartPage = new CartPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)

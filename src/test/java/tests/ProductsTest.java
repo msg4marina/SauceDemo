@@ -8,8 +8,7 @@ public class ProductsTest extends BaseTest{
         loginPage.open();
         loginPage.Login(USER,PASSWORD);
         productsPage.addToCart("Test.allTheThings() T-Shirt (Red)");
-        cartPage.open("");
+        cartPage.open("shopping_cart_badge");
         //TODO VALIDATE NAME AND PRICE
-
     }
 }
