@@ -1,20 +1,12 @@
+package tests;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
-public class SaucedemoFindLocatorsTest {
+public class SaucedemoFindLocatorsTest extends BaseTest {
     @Test
     public void findLocatorsinSauceDemoSite() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        WebDriver driver = new ChromeDriver(options);
         driver.get("https://www.saucedemo.com/");
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
         //find me By.id
         driver.findElement(By.id("root"));
@@ -132,6 +124,5 @@ public class SaucedemoFindLocatorsTest {
         driver.findElement(By.partialLinkText("Labs Back"));
         driver.findElement(By.partialLinkText("Bike Li"));
 
-        driver.quit();
     }
 }
