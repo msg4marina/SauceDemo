@@ -4,12 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class CartPage extends BasePage {
-    String openButton = "//*[contains text(),'%s')]/ancestor::*[@class='shopping_cart_badge']//button";
-
+    String openPage ="//a[@class='shopping_cart_link']";
     public CartPage(WebDriver driver) {
         super(driver);
     }
-    public void open(String name) {
-        driver.findElement(By.xpath(String.format(openButton, name))).click();
+    public void open(String value) {
+        driver.findElement(By.xpath(String.format(openPage, value))).click();
     }
 }
