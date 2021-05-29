@@ -1,7 +1,6 @@
 package tests;
-
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import static org.testng.Assert.assertEquals;
 
 public class SaucedemoTest extends BaseTest {
@@ -11,37 +10,28 @@ public class SaucedemoTest extends BaseTest {
         loginPage.Login(USER, PASSWORD);
     }
 
-    @Test(description = "user name should be required")
-    public void userNameShouldBeRequired( ) {
+    @Test(description = "login")
+    public void login( ) {
         loginPage.open();
-        loginPage.Login("", PASSWORD);
-        String error = loginPage.getError();
-        assertEquals(error, "Epic sadface: Username is required", "Error message is not correct");
+        loginPage.Login(USER, PASSWORD);
     }
 
-    @Test(description = "password should be required")
-    public void passwordShouldBeRequired( ) {
-        loginPage.open();
-        loginPage.Login(USER, "");
-        String error = loginPage.getError();
-        assertEquals(error, "Epic sadface: Password is required", "Password should be written");
+    @DataProvider(name = "Login Data")
+    public Object[][] getLoginData( ) {
+        return new Object[][]{
+                {"", PASSWORD, "Epic sadface: Username is required"},
+                {USER, "", "Epic sadface: Password is required"},
+                {"fdfdfsfsf4334324&@", PASSWORD, "Epic sadface: " +
+                        "Username and password do not match any user in this service"},
+                {USER, "fdfdfsfsf4334324&@", "Epic sadface: Username and password do not match any user in this service"},
+        };
     }
 
-    @Test(description = "username should be written as specified")
-    public void usernameShouldWrittenAsSpecified( ) {
+    @Test(description = "user name should be required", dataProvider = "Login Data")
+    public void userNameShouldBeRequired(String user, String password, String errorMessage) {
         loginPage.open();
-        loginPage.Login("fdfdfsfsf4334324&@", PASSWORD);
+        loginPage.Login(user, password);
         String error = loginPage.getError();
-        assertEquals(error, "Epic sadface: Username and password do not match any user in this service",
-                "Username should be according to specified");
-    }
-
-    @Test(description = "password should written as specified")
-    public void passwordShouldWrittenAsSpecified( ) {
-        loginPage.open();
-        loginPage.Login(USER, "fdfdfsfsf4334324&@");
-        String error = loginPage.getError();
-        assertEquals(error, "Epic sadface: Username and password do not match any user in this service",
-                "Password should be according to specified");
+        assertEquals(error, errorMessage);
     }
 }
