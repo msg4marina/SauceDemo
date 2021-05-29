@@ -8,7 +8,7 @@ public class SaucedemoTest extends BaseTest {
         loginPage.open();
         loginPage.Login(USER, PASSWORD);
     }
-    @Test(description = "login should be correct", dataProvider = "Login Data")
+    @Test(description = "login should be correct")
     public void loginShouldBeCorrect(String user, String passsword, String errorMessage) {
         loginPage.open();
         loginPage.Login(USER, PASSWORD);
@@ -31,7 +31,7 @@ public class SaucedemoTest extends BaseTest {
         String error = loginPage.getError();
         assertEquals(error, "Epic sadface: Password is required", "Password should be written");
     }
-    @Test(description = "usernamed should be written as specified")
+    @Test(description = "username should be written as specified")
     public void usernamedShouldBeWrittenAsSpecified( ) {
         loginPage.open();
         loginPage.Login("fdfdfsfsf4334324&@", PASSWORD);
