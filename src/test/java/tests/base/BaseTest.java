@@ -1,4 +1,4 @@
-package tests;
+package tests.base;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,9 +15,9 @@ import java.util.concurrent.TimeUnit;
 @Listeners(TestListener.class)
 public abstract class BaseTest {
     WebDriver driver;
-    LoginPage loginPage;
-    ProductsPage productsPage;
-    CartPage cartPage;
+    protected LoginPage loginPage;
+    protected ProductsPage productsPage;
+    protected CartPage cartPage;
     public static final String USER = "standard_user";
     public static final String PASSWORD = "secret_sauce";
 
@@ -34,6 +34,7 @@ public abstract class BaseTest {
             OperaOptions options = new OperaOptions();
             options.addArguments("--start-maximized");
             driver = new OperaDriver(options);
+
 
 
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); // неявные ожидания
