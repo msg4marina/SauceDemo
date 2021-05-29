@@ -1,5 +1,8 @@
 package tests.base;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -16,7 +19,9 @@ public class TestListener implements ITestListener {
 
     //TODO API request to set status of test case
     public void onTestFailure(ITestResult result) {
-        //TODO MAKE SCREENSHOT
+      //вызов драйвера для создания скриншота
+       WebDriver driver = (WebDriver) result.getTestContext().getAttribute("driver");
+        ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         System.out.println(String.format("Test failed: %s", result.getName()));
     }
 }
