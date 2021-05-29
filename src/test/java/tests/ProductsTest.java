@@ -2,9 +2,11 @@
 package tests;
 
 import org.testng.annotations.Test;
+import tests.base.BaseTest;
+import tests.base.Retry;
 
-public class ProductsTest extends BaseTest{
-    @Test (retryAnalyzer = Retry.class)
+public class ProductsTest extends BaseTest {
+    @Test (retryAnalyzer = Retry.class, description = "product should be added into the cart")
     public void productShouldBeAddedIntoTheCart (){
         loginPage.open();
         loginPage.Login(USER,PASSWORD);
