@@ -24,8 +24,9 @@ public abstract class BaseTest {
 
     @Parameters({"browser"})
     @BeforeMethod
-    public void setUp( @Optional ("Chrome") String browser) {
-        if (browser.equals("Chrome")) {
+    public void setUp( @Optional ("chrome") String browser) {
+        System.out.println(browser);
+        if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
