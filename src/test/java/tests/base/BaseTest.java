@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.CartPage;
 import pages.LoginPage;
@@ -24,7 +25,7 @@ public abstract class BaseTest {
 
     @Parameters({"browser"})
     @BeforeMethod
-    public void setUp( @Optional ("chrome") String browser) {
+    public void setUp( @Optional ("chrome") String browser, ITestContext testContext) {
         System.out.println(browser);
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
@@ -40,6 +41,9 @@ public abstract class BaseTest {
             OperaOptions options = new OperaOptions();
             options.addArguments("--start-maximized");
             driver = new OperaDriver(options);
+
+            testContext.setAttribute("driver", driver);
+
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); // неявные ожидания
             loginPage = new LoginPage(driver);
             productsPage = new ProductsPage(driver);
