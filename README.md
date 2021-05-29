@@ -4,7 +4,7 @@ Test Automation Framework for www.saucedemo.com
 -Create  login ("SaucedemoTest")
 -Create test to add the product to the cart ("ProductsTest")
 -Place the added product to the cart (page Cart)
--Provide the cross browser testing (Ghrome browser, Opera browser)
+-Provide the cross browser testing (Chrome browser, Opera browser)
 
 #Pre-conditions
 Maven version 3.0.0-M5
