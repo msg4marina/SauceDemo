@@ -3,7 +3,7 @@ package tests;
 import org.testng.annotations.Test;
 
 public class ProductsTest extends BaseTest{
-    @Test
+    @Test (retryAnalyzer = Retry.class, description = "product should be added into the cart")
     public void productShouldBeAddedIntoTheCart (){
         loginPage.open();
         loginPage.Login(USER,PASSWORD);
