@@ -19,8 +19,8 @@ public class TestListener implements ITestListener {
 
     //TODO API request to set status of test case
     public void onTestFailure(ITestResult result) {
-      //вызов драйвера для создания скриншота
-       WebDriver driver = (WebDriver) result.getTestContext().getAttribute("driver");
+        //вызов драйвера для создания скриншота
+        WebDriver driver = (WebDriver) result.getTestContext().getAttribute("driver");
         ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         System.out.println(String.format("Test failed: %s", result.getName()));
     }
