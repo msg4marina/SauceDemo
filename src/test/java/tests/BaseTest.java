@@ -28,22 +28,12 @@ public abstract class BaseTest {
 
     @Parameters({"browser"})
     @BeforeMethod
-    public void setUp(@Optional("chrome") String browser, ITestContext testContext) {
-        System.out.println(browser);
-        if (browser.equals("chrome")) {
-            WebDriverManager.chromedriver().setup();
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--start-maximized");
-            driver = new ChromeDriver(options);
-            testContext.setAttribute("driver", driver);
-
-        } else if (browser.equals("edge")) {
-            WebDriverManager.edgedriver().setup();
-            EdgeOptions options = new EdgeOptions();
-            driver = new EdgeDriver(options);
-            testContext.setAttribute("driver", driver);
-
-        }
+    public void setUp(String browser, ITestContext testContext) {
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
+        options.addArguments("--disable-notifications");
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
