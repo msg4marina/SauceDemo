@@ -34,16 +34,19 @@ public abstract class BaseTest {
             options.addArguments("--start-maximized");
             options.addArguments("--headless");
             driver = new ChromeDriver(options);
+            testContext.setAttribute("driver", driver);
+
         } else if (browser.equals("opera")) {
             WebDriverManager.operadriver().setup();
             OperaOptions options = new OperaOptions();
             driver = new OperaDriver(options);
+            testContext.setAttribute("driver", driver);
+
         }
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
-        testContext.setAttribute("driver", driver);
     }
 
     @AfterMethod(alwaysRun = true)
