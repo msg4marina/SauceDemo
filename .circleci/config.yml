@@ -39,7 +39,7 @@ jobs:
           path: target/site/allure-maven-plugin/
 
             - run:
-                name: Get chrome version
+                name: Get edge version
                 command: google-edge --version
 
                   - run:
