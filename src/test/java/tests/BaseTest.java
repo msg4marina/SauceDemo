@@ -4,6 +4,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.testng.ITestContext;
@@ -36,10 +38,10 @@ public abstract class BaseTest {
             driver = new ChromeDriver(options);
             testContext.setAttribute("driver", driver);
 
-        } else if (browser.equals("opera")) {
-            WebDriverManager.operadriver().setup();
-            OperaOptions options = new OperaOptions();
-            driver = new OperaDriver(options);
+        } else if (browser.equals("edge")) {
+            WebDriverManager.edgedriver().setup();
+            EdgeOptions options = new EdgeOptions();
+            driver = new EdgeDriver(options);
             testContext.setAttribute("driver", driver);
 
         }

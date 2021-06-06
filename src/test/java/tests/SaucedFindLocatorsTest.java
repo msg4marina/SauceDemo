@@ -3,9 +3,9 @@ package tests;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class SaucedemoFindLocatorsTest extends BaseTest {
+public class SaucedFindLocatorsTest extends BaseTest {
     @Test
-    public void findLocatorsinSauceDemoSite() {
+    public void findLocatorsInSauceDemoSite( ) {
         driver.get("https://www.saucedemo.com/");
 
         //find me By.id

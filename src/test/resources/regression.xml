@@ -11,7 +11,7 @@
             <class name="tests.ProductsTest"/>
         </classes>
     </test> <!-- Test -->
-    <parameter name="browser" value="opera"></parameter>
+    <parameter name="browser" value="edge"></parameter>
     <test name="test 2">
         <classes>
             <class name="tests.SaucedemoTest"/>
