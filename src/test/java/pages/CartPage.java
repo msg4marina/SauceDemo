@@ -11,6 +11,7 @@ public class CartPage extends BasePage {
     }
 
     public void open(String value) {
+
         driver.findElement(By.xpath(String.format(openPage, value))).click();
     }
 }

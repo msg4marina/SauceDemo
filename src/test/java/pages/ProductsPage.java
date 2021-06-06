@@ -10,7 +10,8 @@ public class ProductsPage extends BasePage {
     public ProductsPage(WebDriver driver) {
         super(driver);
     }
-@Step("Add product: {name} into cart")
+
+    @Step("Add product: {name} into cart")
     public void addToCart(String name) {
         driver.findElement(By.xpath(String.format(addToCartButton, name))).click();
     }

@@ -21,14 +21,14 @@ import java.util.concurrent.TimeUnit;
 
 @Listeners(TestListener.class)
 public abstract class BaseTest {
+    public static final String USER = "standard_user";
+    public static final String PASSWORD = "secret_sauce";
     WebDriver driver;
     LoginPage loginPage;
     ProductsPage productsPage;
     CartPage cartPage;
-    public static final String USER = "standard_user";
-    public static final String PASSWORD = "secret_sauce";
 
-    @BeforeMethod
+    @BeforeMethod(description = "Open browser")
     public void setUp(@Optional("chrome") String browser, ITestContext testContext) throws MalformedInputException {
         System.out.println(browser);
         if (browser.equals("chrome")) {
@@ -49,9 +49,8 @@ public abstract class BaseTest {
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
     }
-
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() {
+    @AfterMethod(alwaysRun = true, description = "Close browser")
+    public void tearDown( ) {
         driver.quit();
     }
 }
