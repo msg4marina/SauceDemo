@@ -4,12 +4,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.opera.OperaOptions;
-import org.testng.ITestContext;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import pages.CartPage;
 import pages.LoginPage;
 import pages.ProductsPage;
@@ -26,22 +23,20 @@ public abstract class BaseTest {
     public static final String USER = "standard_user";
     public static final String PASSWORD = "secret_sauce";
 
-    @Parameters({"browser"})
     @BeforeMethod
-    public void setUp(String browser, ITestContext testContext) {
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
-        options.addArguments("--disable-notifications");
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); // неявные ожидания
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)
-    public void tearDown( ) {
+    public void tearDown() {
         driver.quit();
     }
 }
