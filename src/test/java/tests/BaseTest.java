@@ -12,6 +12,7 @@ import pages.CartPage;
 import pages.LoginPage;
 import pages.ProductsPage;
 import tests.base.TestListener;
+
 import java.util.concurrent.TimeUnit;
 
 @Listeners(TestListener.class)
@@ -23,19 +24,19 @@ public abstract class BaseTest {
     public static final String USER = "standard_user";
     public static final String PASSWORD = "secret_sauce";
 
-    @Parameters ({"browser"})
+    @Parameters({"browser"})
     @BeforeMethod
     public void setUp(@Optional("chrome") String browser, ITestContext testContext) {
         System.out.println(browser);
-        if (browser.equals("chrome")){
+        if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
             options.addArguments("--headless");
             driver = new ChromeDriver(options);
-        } else if (browser.equals("opera")){
+        } else if (browser.equals("opera")) {
             WebDriverManager.operadriver().setup();
-           OperaOptions options = new OperaOptions();
+            OperaOptions options = new OperaOptions();
             driver = new OperaDriver(options);
         }
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -44,8 +45,9 @@ public abstract class BaseTest {
         cartPage = new CartPage(driver);
         testContext.setAttribute("driver", driver);
     }
+
     @AfterMethod(alwaysRun = true)
-    public void tearDown() {
+    public void tearDown( ) {
         driver.quit();
     }
 }

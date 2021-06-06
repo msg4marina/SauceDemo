@@ -5,7 +5,7 @@ import tests.base.Retry;
 
 public class ProductsTest extends BaseTest {
     @Test(retryAnalyzer = Retry.class, description = "product should be added into the cart")
-    public void productShouldBeAddedIntoTheCart() {
+    public void productShouldBeAddedIntoTheCart( ) {
         loginPage.open();
         loginPage.Login(USER, PASSWORD);
         productsPage.addToCart("Test.allTheThings() T-Shirt (Red)");

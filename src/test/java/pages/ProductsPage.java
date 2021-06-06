@@ -9,6 +9,7 @@ public class ProductsPage extends BasePage {
     public ProductsPage(WebDriver driver) {
         super(driver);
     }
+
     public void addToCart(String name) {
         driver.findElement(By.xpath(String.format(addToCartButton, name))).click();
     }

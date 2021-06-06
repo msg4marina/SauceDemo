@@ -9,6 +9,7 @@ public class CartPage extends BasePage {
     public CartPage(WebDriver driver) {
         super(driver);
     }
+
     public void open(String value) {
         driver.findElement(By.xpath(String.format(openPage, value))).click();
     }
