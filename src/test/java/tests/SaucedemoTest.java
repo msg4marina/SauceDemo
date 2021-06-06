@@ -29,7 +29,7 @@ public class SaucedemoTest extends BaseTest {
         };
     }
 
-    @Test(description = "user name should be required", dataProvider = "Login Data")
+    @Test(description = "user name  and password should be required", dataProvider = "Login Data")
     public void userNameShouldBeRequired(String user, String password, String errorMessage) {
         loginPage.open();
         loginPage.Login(user, password);
