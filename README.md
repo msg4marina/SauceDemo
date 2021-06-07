@@ -5,17 +5,27 @@ Test Automation Framework for www.saucedemo.com
 -Create login ("SaucedemoTest")
 -Create test to add the product to the cart ("ProductsTest")
 -Place the added product to the cart (page Cart)
--Provide the cross browser testing (Chrome browser, Opera browser)
+-Provide the cross browser testing (Chrome browser, Edge browser)
 
 # Pre-conditions
 
-Maven version 3.0.0-M5 Java version 15 Chrome browser verdion 90.0.4430.212 Opera browser (tool for cross browser
-testing only)
+-Maven version 3.0.0-M5 
+-Java version 15
+-Chrome browser verdion 90.0.4430.212
+-Edge browser (tool for cross browser testing only)
+-1.0-SNAPSHOT version
+-plugin: Allure Maven
+-dependency: allure-testng
 
 # Technologies/Libraries
 
--TestNG version 7.1.0 -Maven -Selenium automate browser version 3.141.59 -Webdrivermanager version 4.4.1 -Aspectjweaver
-version 1.9.1 -Maven-surefire-plugin version 3.0.0-M5 (Requirements: Maven 3.x and JDK 1.7 or higher)
+-TestNG version 7.1.0 
+-Maven 
+-Selenium automate browser version 3.141.59 
+-Webdrivermanager version 4.4.1 
+-Aspectjweaver
+version 1.9.1 
+-Maven-surefire-plugin version 3.0.0-M5 (Requirements: Maven 3.x and JDK 1.7 or higher)
 
 [INFO]
 Newer versions for Testing framework for Java :
