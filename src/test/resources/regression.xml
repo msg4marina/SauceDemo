@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="2" name="Test suite" parallel="tests">
-<listeners>
-    <listener  class-name="tests.base.NewAnnotationTransformer"/>
+    <listeners>
+        <listener class-name="tests.base.NewAnnotationTransformer"/>
     </listeners>
-     <test name="test 1">
-         <parameter name="browser" value="chrome"> </parameter>
-         <classes>
-             <class name="tests.SaucedemoTest"/>
+    <parameter name="browser" value="chrome"></parameter>
+    <test name="test 1">
+        <classes>
+            <class name="tests.SaucedemoTest"/>
             <class name="tests.ProductsTest"/>
         </classes>
     </test> <!-- Test -->
+    <parameter name="browser" value="edge"></parameter>
     <test name="test 2">
-        <parameter name="browser" value="opera">    </parameter>
         <classes>
             <class name="tests.SaucedemoTest"/>
             <class name="tests.ProductsTest"/>
