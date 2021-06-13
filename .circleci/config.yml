@@ -46,6 +46,9 @@ workflows:
     triggers:
       - schedule:
           cron: "1 4,8,12 * * *"
-
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - ui-tests
