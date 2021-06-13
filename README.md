@@ -9,7 +9,7 @@ Test Automation Framework for www.saucedemo.com
 
 # Pre-conditions
 
-Maven version 3.0.0-M5 Java version 15 Chrome browser verdion 90.0.4430.212 Edge browser (tool for cross browser
+Maven version 3.0.0-M5 Java version 15 Chrome browser version 90.0.4430.212 Edge browser (tool for cross browser
 testing only)
 
 # Technologies/Libraries
