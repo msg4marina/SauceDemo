@@ -51,7 +51,7 @@ public abstract class BaseTest {
         cartPage = new CartPage(driver);
     }
     @AfterMethod(alwaysRun = true, description = "Close browser")
-    public void tearDown( ) {
+    public void tearDown() {
         driver.quit();
     }
 }
