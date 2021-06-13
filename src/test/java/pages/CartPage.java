@@ -1,8 +1,10 @@
 package pages;
 
+import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j
 public class CartPage extends BasePage {
     String openPage = "//a[@class='shopping_cart_link']";
 
@@ -13,5 +15,7 @@ public class CartPage extends BasePage {
     public void open(String value) {
 
         driver.findElement(By.xpath(String.format(openPage, value))).click();
+        log.warn("warn");
+        log.info("info");
     }
 }
