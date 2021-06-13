@@ -1,11 +1,11 @@
 package tests;
-
+import lombok.extern.log4j.Log4j;
 import io.qameta.allure.Step;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import static org.testng.Assert.assertEquals;
 
+@Log4j
 public class SaucedemoTest extends BaseTest {
     @Step ("Open Saucedemo site")
     public void testSauceDemoSite() {
@@ -34,6 +34,9 @@ public class SaucedemoTest extends BaseTest {
         loginPage.open();
         loginPage.Login(user, password);
         String error = loginPage.getError();
+        log.fatal("fatal");
+        log.error("error");
+        log.debug("debug");
         assertEquals(error, errorMessage);
     }
 }
